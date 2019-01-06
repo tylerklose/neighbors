@@ -26,6 +26,9 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Validate e-mail addreses against RFC 2822 and RFC 3696 with this Ruby on Rails plugin and gem. https://github.com/validates-email-format-of/validates_email_format_of
+gem 'validates_email_format_of'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
