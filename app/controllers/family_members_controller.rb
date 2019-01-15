@@ -7,7 +7,7 @@ class FamilyMembersController < ApplicationController
   # GET /family_members
   # GET /family_members.json
   def index
-    @family_members = FamilyMember.all
+    @family_members = @family.family_members
   end
 
   # GET /family_members/1
