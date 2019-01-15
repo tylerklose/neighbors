@@ -17,18 +17,18 @@
 
 <p>
   <strong>Working:</strong>
-  <%= @family_member.working %>
+  <%= @family_member.working ? 'Yes' : 'No' %>
 </p>
 
 <p>
   <strong>Family:</strong>
-  <%= @family_member.family %>
+  <%= @family_member.family.primary_member_last_name %>
 </p>
 
 <p>
-  <strong>Relationship:</strong>
-  <%= @family_member.relationship %>
+  <strong>Relationship to <%= @family.primary_member_first_name %> <%= @family.primary_member_last_name %>:</strong>
+  <%= @family_member.relationship.name %>
 </p>
 
-<%= link_to 'Edit', edit_family_member_path(@family_member) %> |
-<%= link_to 'Back', family_members_path %>
+<%= link_to 'Edit', edit_family_family_member_path(@family_member) %> |
+<%= link_to 'Back', family_family_members_path(family_id: @family.id) %>

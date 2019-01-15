@@ -1,37 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Family Members</h1>
+<h1>The <%= @family.primary_member_last_name %> Family</h1>
+<%= link_to 'New Family Member', new_family_family_member_path(family_id: params[:family_id]), class: 'btn btn-primary' %>
 
-<table class='table'>
-  <thead>
-    <tr>
-      <th scope='col'>First name</th>
-      <th scope='col'>Last name</th>
-      <th scope='col'>Age</th>
-      <th scope='col'>Working</th>
-      <th scope='col'>Family</th>
-      <th scope='col'>Relationship</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @family_members.each do |family_member| %>
+<% if @family_members.any? %>
+  <br><br>
+  <table class='table'>
+    <thead>
       <tr>
-        <th scope='col'><%= family_member.first_name %></td>
-        <td><%= family_member.last_name %></td>
-        <td><%= family_member.age %></td>
-        <td><%= family_member.working %></td>
-        <td><%= family_member.family %></td>
-        <td><%= family_member.relationship %></td>
-        <td><%= link_to 'Show', family_member %></td>
-        <td><%= link_to 'Edit', edit_family_member_path(family_member) %></td>
-        <td><%= link_to 'Destroy', family_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th scope='col'>First name</th>
+        <th scope='col'>Last name</th>
+        <th scope='col'>Age</th>
+        <th scope='col'>Working</th>
+        <th scope='col'>Family</th>
+        <th scope='col'>Relationship</th>
+        <th colspan="2">Actions</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Family Member', new_family_member_path %>
+    <tbody>
+      <% @family_members.each do |family_member| %>
+        <tr>
+          <th scope='col'><%= link_to family_member.first_name, family_family_member_path(id: family_member.id) %></td>
+          <td><%= family_member.last_name %></td>
+          <td><%= family_member.age %></td>
+          <td><%= family_member.working ? 'Yes' : 'No' %></td>
+          <td><%= family_member.family.primary_member_last_name %></td>
+          <td><%= family_member.relationship.name %></td>
+          <td><%= link_to 'Edit', edit_family_family_member_path(id: family_member.id) %></td>
+          <td><%= link_to 'Destroy', family_family_member_path(id: family_member.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class FamilyMembersController < ApplicationController
+  before_action :load_family
   before_action :set_family_member, only: %i[show edit update destroy]
 
   # GET /family_members
@@ -29,7 +30,7 @@ class FamilyMembersController < ApplicationController
 
     respond_to do |format|
       if @family_member.save
-        format.html { redirect_to @family_member, notice: 'Family member was successfully created.' }
+        format.html { redirect_to family_family_members_path(@family), notice: 'Family member was successfully created.' }
         format.json { render :show, status: :created, location: @family_member }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class FamilyMembersController < ApplicationController
   def update
     respond_to do |format|
       if @family_member.update(family_member_params)
-        format.html { redirect_to @family_member, notice: 'Family member was successfully updated.' }
+        format.html { redirect_to family_family_members_path(family_id: @family.id), notice: 'Family member was successfully updated.' }
         format.json { render :show, status: :ok, location: @family_member }
       else
         format.html { render :edit }
@@ -57,12 +58,16 @@ class FamilyMembersController < ApplicationController
   def destroy
     @family_member.destroy
     respond_to do |format|
-      format.html { redirect_to family_members_url, notice: 'Family member was successfully destroyed.' }
+      format.html { redirect_to family_family_members_url, notice: 'Family member was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+
+  def load_family
+    @family = Family.find(params[:family_id])
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_family_member

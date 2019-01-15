@@ -11,14 +11,14 @@
       <th scope='col'>Home address</th>
       <th scope='col'>Email address</th>
       <th scope='col'>Phone number</th>
-      <th colspan="3"></th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @families.each do |family| %>
       <tr>
-        <th scope='row'><%= link_to family.primary_member_last_name, family_members_path %></td>
+        <th scope='row'><%= link_to family.primary_member_last_name, family_family_members_path(family_id: family.id) %></td>
         <td><%= family.primary_member_first_name %></td>
         <td><%= family.primary_member_age %></td>
         <td><%= family.home_address %></td>
