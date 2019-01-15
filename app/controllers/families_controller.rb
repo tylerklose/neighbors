@@ -6,7 +6,7 @@ class FamiliesController < ApplicationController
   # GET /families
   # GET /families.json
   def index
-    @families = Family.all
+    @families = Family.all.order(:primary_member_last_name)
   end
 
   # GET /families/1

@@ -5,12 +5,15 @@ require 'validates_email_format_of/rspec_matcher'
 
 RSpec.describe Family, type: :model do
   # Validate presence of required attributes
-  it { is_expected.to validate_presence_of(:primary_member_first_name }
-  it { is_expected.to validate_presence_of(:primary_member_last_name }
-  it { is_expected.to validate_presence_of(:primary_member_age }
+  it { is_expected.to validate_presence_of(:primary_member_first_name) }
+  it { is_expected.to validate_presence_of(:primary_member_last_name) }
+  it { is_expected.to validate_presence_of(:primary_member_age) }
   it { is_expected.to validate_presence_of(:home_address) }
   it { is_expected.to validate_presence_of(:email_address) }
   it { is_expected.to validate_presence_of(:phone_number) }
+
+  it { should_not allow_value(20).for(:primary_member_age) }
+  it { should allow_value(21).for(:primary_member_age) }
 
   it { should validate_email_format_of(:email_address).with_message('Please supply a valid email address.') }
   it { should allow_value('foo@bar.baz').for(:email_address) }
