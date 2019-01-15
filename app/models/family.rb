@@ -5,4 +5,6 @@ class Family < ApplicationRecord
   validates :primary_member_age, numericality: { greater_than_or_equal_to: 21 }
   validates_email_format_of :email_address, message: 'Please supply a valid email address.'
   validates :phone_number, format: { with: /\d{10}/ }
+
+  has_many :family_members
 end

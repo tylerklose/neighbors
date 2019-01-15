@@ -54,6 +54,8 @@ group :development do
 
   # Guard plugin for RuboCop https://github.com/yujinakayama/guard-rubocop
   gem 'guard-rubocop'
+
+  gem 'pry-rails'
 end
 
 group :test do
