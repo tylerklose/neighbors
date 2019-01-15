@@ -1,0 +1,40 @@
+<div class='row'>
+  <div class='col-sm'>
+    <h4>Primary Member Info<h4>
+    <p>
+      <strong>First name:</strong>
+      <%= @family.primary_member_first_name %>
+    </p>
+
+    <p>
+      <strong>Last name:</strong>
+      <%= @family.primary_member_last_name %>
+    </p>
+
+    <p>
+      <strong>Age:</strong>
+      <%= @family.primary_member_age %>
+    </p>
+  </div>
+
+  <div class='col-sm'>
+    <h4>Family Contact Info<h4>
+    <p>
+      <strong>Home address:</strong>
+      <%= @family.home_address %>
+    </p>
+
+    <p>
+      <strong>Email address:</strong>
+      <%= @family.email_address %>
+    </p>
+
+    <p>
+      <strong>Phone number:</strong>
+      <%= @family.phone_number %>
+    </p>
+    </div>
+</div>
+
+<%= link_to 'Edit', edit_family_path(@family) %> |
+<%= link_to 'Back', families_path %>

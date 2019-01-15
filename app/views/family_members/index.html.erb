@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1>The <%= @family.primary_member_last_name %> Family</h1>
+<hr>
+
+<div>
+  <%= render partial: 'families/fields' %>
+</div>
+
+<hr>
+
 <%= link_to 'New Family Member', new_family_family_member_path(family_id: params[:family_id]), class: 'btn btn-primary' %>
 
 <% if @family_members.any? %>
