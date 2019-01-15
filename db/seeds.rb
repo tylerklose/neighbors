@@ -7,3 +7,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+relationships = %w[Spouse Parent Child Sibling Other]
+relationships.each do |relationship|
+  Relationship.create!(name: relationship)
+end

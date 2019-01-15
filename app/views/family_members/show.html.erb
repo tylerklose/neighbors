@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @family_member.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @family_member.last_name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @family_member.age %>
+</p>
+
+<p>
+  <strong>Working:</strong>
+  <%= @family_member.working %>
+</p>
+
+<p>
+  <strong>Family:</strong>
+  <%= @family_member.family %>
+</p>
+
+<p>
+  <strong>Relationship:</strong>
+  <%= @family_member.relationship %>
+</p>
+
+<%= link_to 'Edit', edit_family_member_path(@family_member) %> |
+<%= link_to 'Back', family_members_path %>
