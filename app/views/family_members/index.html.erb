@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class='alert alert-primary'>
+    <%= notice %>
+  </div>
+<% end %>
 
 <h1>The <%= @family.primary_member_last_name %> Family</h1>
 <hr>

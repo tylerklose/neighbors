@@ -30,5 +30,5 @@
   <%= @family_member.relationship.name %>
 </p>
 
-<%= link_to 'Edit', edit_family_family_member_path(@family_member) %> |
+<%= link_to 'Edit', edit_family_family_member_path(@family_member, family_id: @family.id) %> |
 <%= link_to 'Back', family_family_members_path(family_id: @family.id) %>
