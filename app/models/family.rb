@@ -6,5 +6,5 @@ class Family < ApplicationRecord
   validates_email_format_of :email_address, message: 'Please supply a valid email address.'
   validates :phone_number, format: { with: /\d{10}/ }
 
-  has_many :family_members
+  has_many :family_members, dependent: :destroy
 end
