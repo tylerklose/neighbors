@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+##
+# Migration to create the FamilyMembers table
+#
 class CreateFamilyMembers < ActiveRecord::Migration[5.2]
   def change
     create_table :family_members do |t|

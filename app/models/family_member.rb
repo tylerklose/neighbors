@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+##
+# The FamilyMember model represents people that belong to a Family (other than the primary member)
+#
 class FamilyMember < ApplicationRecord
   belongs_to :family
   belongs_to :relationship
@@ -11,14 +14,23 @@ class FamilyMember < ApplicationRecord
 
   validate :limit_number_of_family_members
 
+  ##
+  # A custom validation method that ensures each family has at most 9 FamilyMembers besides the primary member
+  #
   def limit_number_of_family_members
     errors.add(:base, 'You cannot add any more family members to this family') if family.family_members.size > 9
   end
 
+  ##
+  # A custom validation method that enforces the rule that one must be at least 14 years old to legally work
+  #
   def working_minimum_age_requirement
     errors.add(:working, 'You must be at least 14 years old to work') if working && age < 14
   end
 
+  ##
+  # A method that improves readability by providing a way to easily join first_name and last_name in a string
+  #
   def full_name
     "#{first_name} #{last_name}"
   end

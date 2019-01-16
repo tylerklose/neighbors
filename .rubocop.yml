@@ -4,11 +4,23 @@ Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - 'db/schema.rb'
 
+Metrics/AbcSize:
+  Max: 18
+
 Metrics/BlockLength:
-  Exclude:
-    - 'Guardfile'
-    - 'spec/**/*'
+  Max: 30
+
+Metrics/MethodLength:
+  Max: 11
+
+Metrics/LineLength:
+  Max: 214
 
 Style:
   Exclude:
     - 'db/schema.rb'
+
+Style/MixinUsage:
+  Exclude:
+    - 'bin/setup'
+    - 'bin/update'
