@@ -2,6 +2,8 @@
 
 ## Local Development Setup
 
+This guide assumes that you have Ruby 2.5.1, Postgres, Git, and Bundler installed.
+
 Clone the repository:
 
 ```console
@@ -64,4 +66,41 @@ To get start up guard for monitoring and run through the suite of automated test
 ```console
 guard
 [enter]
+```
+
+## Exercise Requirements
+
+```
+You will create new family, edit/delete existing family.
+
+When you open the app, you will see a list of families that you've created, ordered by the last name of the primary family member.  Then he can click on any family to see the details of that family.
+
+A family is made up of one primary member and multiple additional family members.  Need to limit the number of additional family members to <= 9.
+
+A family must contain at least the following information:
+	1. Home address
+	2. Email address
+	3. Phone number
+
+The primary family member must have the following data points:
+	1. Name
+	2. Age, must be >= 21 to be the primary member
+
+Additional family member must have the following data points:
+	1. Name
+	2. Age
+	3. Relationship to Primary family member
+		1. Spouse
+		2. Parent
+		3. Child
+		4. Sibling
+		5. Other
+	4. Working or not? Asked only if age is >= 14 because younger than 14 are not allowed to work.
+
+
+Tech stack:
+- Ruby on Rails (any version)
+- PostgreSQL (any version)
+- Front-end (any framework/library/engine...)
+- This can be done as a Javascript SPA with Rails API or a traditional Rails application
 ```
