@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+##
+# :nodoc:
+#
 module ApplicationHelper
   def edit_icon
     fa_icon('pencil')
