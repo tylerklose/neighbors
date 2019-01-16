@@ -46,3 +46,8 @@
     <%= link_to "Back to the #{@family.name} family", families_path %>
   </div>
 <% end %>
+
+<script>
+  var input = document.getElementById('family_home_address');
+  autocomplete = new google.maps.places.Autocomplete(input, {});
+</script>
