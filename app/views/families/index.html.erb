@@ -29,7 +29,7 @@
         <td><%= mail_to(family.email_address) %></td>
         <td><%= number_to_phone(family.phone_number) %></td>
         <td><%= link_to edit_icon, edit_family_path(family) %></td>
-        <td><%= link_to delete_icon, family, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to delete_icon, family, method: :delete, data: { title: 'Delete Confirmation', confirm: "Are you sure you want to delete the <b>#{family.name}</b> family? This action cannot be undone." } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -18,4 +18,8 @@ class FamilyMember < ApplicationRecord
   def working_minimum_age_requirement
     errors.add(:working, 'You must be at least 14 years old to work') if working && age < 14
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

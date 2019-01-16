@@ -12,8 +12,8 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require_tree .
-
 //= require jquery3
 //= require popper
-//= bootstrap
+//= require bootstrap
+//= require data-confirm-modal
+//= require_tree .

@@ -4,10 +4,12 @@ require 'rails_helper'
 
 RSpec.describe FamilyMember, type: :model do
   # Validate presence of required attributes
+  family = Family.create!(primary_member_first_name: 'First', primary_member_last_name: 'Last', primary_member_age: 21, home_address: 'an address', email_address: 'email@email.com', phone_number: '6095401568')
+  subject { FamilyMember.new(family_id: family.id) }
+
   it { is_expected.to validate_presence_of(:first_name) }
   it { is_expected.to validate_presence_of(:last_name) }
   it { is_expected.to validate_presence_of(:age) }
-  it { is_expected.to validate_presence_of(:family_id) }
   it { is_expected.to validate_presence_of(:relationship_id) }
 
   it { should allow_value(21).for(:age) }
