@@ -1,24 +1,67 @@
-# README
+# Neighbors
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Local Development Setup
 
-Things you may want to cover:
+Clone the repository:
 
-* Ruby version
+```console
+git clone git@github.com:tylerklose/neighbors.git
+```
 
-* System dependencies
+Then jump into the local copy of the repository:
 
-* Configuration
+```console
+cd neighbors
+```
 
-* Database creation
+And let bundler handle the dependencies:
 
-* Database initialization
+```console
+bundle install
+```
 
-* How to run the test suite
+Next you will need to setup the database:
 
-* Services (job queues, cache servers, search engines, etc.)
+```console
+rails db:create
+rails db:schema:load
+rails db:seed
+```
 
-* Deployment instructions
+Confirm you can access the Rails console:
 
-* ...
+```console
+rails c
+```
+
+Then at the console, confirm you can access the database programmatically:
+
+```console
+Relationship.first
+exit
+```
+
+Now you're ready to get the server up and running.
+
+```console
+rails s thin
+```
+
+## Testing
+
+### Local Testing
+
+To get the test DB ready:
+
+```console
+rails db:test:prepare
+```
+
+Only run `bundle exec rails db:test:prepare` if you need to sync the database schema for the test database to what you have for dev/prod
+
+To get start up guard for monitoring and run through the suite of automated tests:
+
+```console
+guard
+[enter]
+```
