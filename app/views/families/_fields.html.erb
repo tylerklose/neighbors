@@ -26,15 +26,15 @@
 
     <p>
       <strong>Email address:</strong>
-      <%= @family.email_address %>
+      <%= mail_to(@family.email_address) %>
     </p>
 
     <p>
       <strong>Phone number:</strong>
-      <%= @family.phone_number %>
+      <%= number_to_phone(@family.phone_number) %>
     </p>
     </div>
 </div>
 
 <%= link_to 'Edit', edit_family_path(@family) %> |
-<%= link_to 'Back', families_path %>
+<%= link_to 'View all families', families_path %>

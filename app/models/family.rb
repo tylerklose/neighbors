@@ -7,4 +7,8 @@ class Family < ApplicationRecord
   validates :phone_number, format: { with: /\d{10}/ }
 
   has_many :family_members, dependent: :destroy
+
+  def name
+    primary_member_last_name
+  end
 end

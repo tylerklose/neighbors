@@ -4,15 +4,8 @@
   </div>
 <% end %>
 
-<p>
-  <strong>First name:</strong>
-  <%= @family_member.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @family_member.last_name %>
-</p>
+<h1><%= @family_member.first_name %> <%= @family_member.last_name %></h1>
+<hr>
 
 <p>
   <strong>Age:</strong>
@@ -34,5 +27,5 @@
   <%= @family_member.relationship.name %>
 </p>
 
-<%= link_to 'Edit', edit_family_family_member_path(@family_member, family_id: @family.) %> |
-<%= link_to 'Back', family_family_members_path(family_id: @family.id) %>
+<%= link_to 'Edit', edit_family_family_member_path(@family_member, family_id: @family.id) %> |
+<%= link_to "Back to the #{@family.name} family", family_family_members_path(family_id: @family.id) %>

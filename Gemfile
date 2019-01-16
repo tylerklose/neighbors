@@ -41,6 +41,8 @@ group :development, :test do
 
   # rspec-rails is a testing framework for Rails 3.x, 4.x and 5.x. Read more: https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '~> 3.8'
+
+  gem 'font-awesome-rails'
 end
 
 group :development do

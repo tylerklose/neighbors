@@ -26,10 +26,10 @@
         <td><%= family.primary_member_first_name %></td>
         <td><%= family.primary_member_age %></td>
         <td><%= family.home_address %></td>
-        <td><%= family.email_address %></td>
-        <td><%= family.phone_number %></td>
-        <td><%= link_to 'Edit', edit_family_path(family) %></td>
-        <td><%= link_to 'Destroy', family, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= mail_to(family.email_address) %></td>
+        <td><%= number_to_phone(family.phone_number) %></td>
+        <td><%= link_to edit_icon, edit_family_path(family) %></td>
+        <td><%= link_to delete_icon, family, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
