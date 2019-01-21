@@ -21,4 +21,8 @@ class Family < ApplicationRecord
   def name
     primary_family_member.last_name
   end
+
+  def coordinates_for_google_maps
+    { lat: latitude, lng: longitude }.to_json
+  end
 end

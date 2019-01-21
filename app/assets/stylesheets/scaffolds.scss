@@ -5,6 +5,7 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  height: 100%;
 }
 
 p,
@@ -49,4 +50,14 @@ div {
 
 label {
   display: block;
+}
+
+#map-container {
+  height: 500px;
+  width: 100%;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
 }
