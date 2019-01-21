@@ -8,7 +8,8 @@ class FamiliesController < ApplicationController
 
   # GET /families
   def index
-    @families = Family.all.order(:primary_member_last_name)
+    # TODO: Make sure to order the families by last name of primary member
+    @families = Family.all
   end
 
   # GET /families/1

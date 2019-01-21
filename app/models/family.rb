@@ -9,6 +9,8 @@ class Family < ApplicationRecord
   validates :phone_number, format: { with: /\d{10}/ }
 
   has_many :family_members, dependent: :destroy
+  has_one :primary_family_member
+  has_many :additional_family_members
 
   geocoded_by :home_address
   after_validation :geocode
@@ -17,6 +19,6 @@ class Family < ApplicationRecord
   # This method provides an alias to the primary_member_last_name attribute.
   #
   def name
-    primary_member_last_name
+    primary_family_member.last_name
   end
 end
