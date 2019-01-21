@@ -27,6 +27,7 @@ class FamilyMembersController < ApplicationController
   def create
     @family_member = FamilyMember.new(family_member_params)
     @family_member.working = family_member_params[:working] == '1'
+    @family_member.type = 'AdditionalFamilyMember'
 
     respond_to do |format|
       if @family_member.save
