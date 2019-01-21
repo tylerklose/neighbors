@@ -10,15 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_21_162411) do
+ActiveRecord::Schema.define(version: 2019_01_21_170216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "families", force: :cascade do |t|
-    t.string "primary_member_first_name"
-    t.string "primary_member_last_name"
-    t.integer "primary_member_age"
     t.string "home_address"
     t.string "email_address"
     t.string "phone_number"
@@ -37,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_01_21_162411) do
     t.bigint "relationship_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type"
     t.index ["family_id"], name: "index_family_members_on_family_id"
     t.index ["relationship_id"], name: "index_family_members_on_relationship_id"
   end
