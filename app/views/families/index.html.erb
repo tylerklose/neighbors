@@ -52,7 +52,12 @@
     });
 
     <% @families.each do |family| %>
-      var marker = new google.maps.Marker({ position: <%== family.coordinates_for_google_maps %>, map: map });
+      var marker = new google.maps.Marker({
+        position: <%== family.coordinates_for_google_maps %>,
+        map: map,
+        title: '<%= "The #{family.name} household" %>',
+      });
+
       marker.addListener('click', () => {
         window.location.href = '<%= family_family_members_path(family) %>';
       });
