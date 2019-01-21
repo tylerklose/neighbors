@@ -11,6 +11,9 @@ class Family < ApplicationRecord
 
   has_many :family_members, dependent: :destroy
 
+  geocoded_by :home_address
+  after_validation :geocode
+
   ##
   # This method provides an alias to the primary_member_last_name attribute.
   #

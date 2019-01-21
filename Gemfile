@@ -34,6 +34,8 @@ gem 'font-awesome-rails', '~> 4.7.0'
 # A gem to automate using jQuery with Rails https://github.com/rails/jquery-rails
 gem 'jquery-rails', '~> 4.3.3'
 
+gem 'geocoder'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
