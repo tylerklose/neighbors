@@ -6,6 +6,10 @@
 
 <h1>Families</h1>
 
+<div id='map-container'>
+  <div id='map'></div>
+</div>
+
 <table class='table'>
   <thead>
     <tr>
@@ -38,3 +42,22 @@
 <br>
 
 <%= link_to 'Add New Family', new_family_path, class: 'btn btn-primary' %>
+
+<script>
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: <%= Family.first.latitude %>, lng: <%= Family.first.longitude %> },
+      zoom: 8
+    });
+
+    <% @families.each do |family| %>
+      var marker = new google.maps.Marker({ position: <%== family.coordinates_for_google_maps %>, map: map });
+      marker.addListener('click', () => {
+        window.location.href = '<%= family_family_members_path(family) %>';
+      });
+    <% end %>
+  }
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVon4VcEXtkq0nqIZpnM2gRjH24n5Hunw&callback=initMap"></script>
