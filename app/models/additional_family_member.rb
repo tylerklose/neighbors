@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+##
+# The AdditionalFamilyMember model represents people that belong to a Family (other than the primary member)
+#
 class AdditionalFamilyMember < FamilyMember
   belongs_to :relationship
 

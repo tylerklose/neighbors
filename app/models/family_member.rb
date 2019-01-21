@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 ##
-# The FamilyMember model represents people that belong to a Family (other than the primary member)
+# The FamilyMember model represents people that belong to a Family
+# Two models inherit from Family Member: PrimaryFamilyMember and AdditionalFamilyMember
 #
 class FamilyMember < ApplicationRecord
   belongs_to :family

@@ -9,8 +9,8 @@ class Family < ApplicationRecord
   validates :phone_number, format: { with: /\d{10}/ }
 
   has_many :family_members, dependent: :destroy
-  has_one :primary_family_member
-  has_many :additional_family_members
+  has_one :primary_family_member, dependent: :destroy
+  has_many :additional_family_members, dependent: :destroy
 
   geocoded_by :home_address
   after_validation :geocode
