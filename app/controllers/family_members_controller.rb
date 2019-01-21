@@ -9,7 +9,7 @@ class FamilyMembersController < ApplicationController
 
   # GET /family_members
   def index
-    @family_members = @family.family_members
+    @additional_family_members = @family.additional_family_members
   end
 
   # GET /family_members/1

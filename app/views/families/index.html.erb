@@ -22,9 +22,9 @@
   <tbody>
     <% @families.each do |family| %>
       <tr>
-        <th scope='row'><%= link_to family.primary_member_last_name, family_family_members_path(family_id: family.id) %></td>
-        <td><%= family.primary_member_first_name %></td>
-        <td><%= family.primary_member_age %></td>
+        <th scope='row'><%= link_to family.primary_family_member.last_name, family_family_members_path(family_id: family.id) %></td>
+        <td><%= family.primary_family_member.first_name %></td>
+        <td><%= family.primary_family_member.age %></td>
         <td><%= family.home_address %></td>
         <td><%= mail_to(family.email_address) %></td>
         <td><%= number_to_phone(family.phone_number) %></td>

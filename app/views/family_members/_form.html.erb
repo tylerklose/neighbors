@@ -1,4 +1,4 @@
-<%= form_with(model: [@family, family_member], local: true) do |form| %>
+<%= form_with(model: [@family, family_member.becomes(FamilyMember)], local: true) do |form| %>
   <% if family_member.errors.any? %>
     <div id="error_explanation" class='alert alert-danger'>
       <h4><%= pluralize(family_member.errors.count, "error") %> prohibited this family_member from being saved:</h2>

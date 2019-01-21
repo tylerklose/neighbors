@@ -4,7 +4,7 @@
   </div>
 <% end %>
 
-<h1>The <%= @family.primary_member_last_name %> Family</h1>
+<h1>The <%= @family.primary_family_member.last_name %> Family</h1>
 <hr>
 
 <div>
@@ -15,7 +15,7 @@
 
 <%= link_to 'New Family Member', new_family_family_member_path(family_id: params[:family_id]), class: 'btn btn-primary' %>
 
-<% if @family_members.any? %>
+<% if @additional_family_members.any? %>
   <br><br>
   <table class='table'>
     <thead>
@@ -31,13 +31,13 @@
     </thead>
 
     <tbody>
-      <% @family_members.each do |family_member| %>
+      <% @additional_family_members.each do |family_member| %>
         <tr>
           <th scope='col'><%= link_to family_member.first_name, family_family_member_path(id: family_member.id) %></td>
           <td><%= family_member.last_name %></td>
           <td><%= family_member.age %></td>
           <td><%= family_member.working ? 'Yes' : 'No' %></td>
-          <td><%= family_member.family.primary_member_last_name %></td>
+          <td><%= family_member.family.primary_family_member.last_name %></td>
           <td><%= family_member.relationship.name %></td>
           <td><%= link_to edit_icon, edit_family_family_member_path(id: family_member.id) %></td>
           <td><%= link_to delete_icon, family_family_member_path(id: family_member.id), method: :delete, data: { title: 'Delete Confirmation', confirm: "Are you sure you want to delete <b>#{family_member.full_name}</b> from the <b>#{@family.name}</b> family? This action cannot be undone." } %></td>
