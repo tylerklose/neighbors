@@ -4,8 +4,7 @@
 # Top level class which encompasses a primary member and has many FamilyMembers.
 #
 class Family < ApplicationRecord
-  validates :primary_member_first_name, :primary_member_last_name, :primary_member_age, :home_address, :email_address, :phone_number, presence: true
-  validates :primary_member_age, numericality: { greater_than_or_equal_to: 21 }
+  validates :home_address, :email_address, :phone_number, presence: true
   validates_email_format_of :email_address, message: 'Please supply a valid email address.'
   validates :phone_number, format: { with: /\d{10}/ }
 
