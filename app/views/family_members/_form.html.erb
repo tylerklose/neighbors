@@ -29,9 +29,9 @@
   <div class="form-check">
     <%= form.check_box :working, class: 'form-check-input' %>
     <%= form.label :working, class: 'form-check-label' %>
+   <br></br>
   </div>
 
-  <br>
   <%= form.hidden_field :family_id, value: @family.id %>
 
   <div class="form-group">
@@ -43,3 +43,16 @@
     <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+<script>
+  $('#family_member_age').on('blur', (event) => {
+    let workingCheckbox = $('#family_member_working');
+
+    if (event.target.value < 14) {
+      workingCheckbox.checked = false;
+      workingCheckbox.parent().hide();
+    } else {
+      workingCheckbox.parent().show();
+    }
+  });
+</script>
