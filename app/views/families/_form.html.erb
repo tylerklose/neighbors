@@ -43,7 +43,7 @@
 
   <div class="actions">
     <%= form.submit class: 'btn btn-primary' %>
-    <%= link_to "Back to the #{@family.name} family", families_path %>
+    <%= cancel_link(@family) %>
   </div>
 <% end %>
 
