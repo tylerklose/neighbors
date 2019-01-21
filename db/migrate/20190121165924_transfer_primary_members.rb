@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TransferPrimaryMembers < ActiveRecord::Migration[5.2]
   def change
     Family.all.each do |family|

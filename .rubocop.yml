@@ -1,3 +1,7 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+
 Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - 'db/schema.rb'
@@ -13,10 +17,6 @@ Metrics/MethodLength:
 
 Metrics/LineLength:
   Max: 214
-
-Style:
-  Exclude:
-    - 'db/schema.rb'
 
 Style/MixinUsage:
   Exclude:
