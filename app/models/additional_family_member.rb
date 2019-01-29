@@ -4,6 +4,8 @@
 # The AdditionalFamilyMember model represents people that belong to a Family (other than the primary member)
 #
 class AdditionalFamilyMember < FamilyMember
+  belongs_to :family, inverse_of: :additional_family_members
+
   belongs_to :relationship
 
   validates :relationship_id, presence: true

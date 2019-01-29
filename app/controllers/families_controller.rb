@@ -9,7 +9,7 @@ class FamiliesController < ApplicationController
   # GET /families
   def index
     # TODO: Make sure to order the families by last name of primary member
-    @families = Family.all
+    @families = Family.includes(:primary_family_member).sort_by { |family| family.primary_family_member.last_name }
   end
 
   # GET /families/1
@@ -18,6 +18,7 @@ class FamiliesController < ApplicationController
   # GET /families/new
   def new
     @family = Family.new
+    @family.build_primary_family_member
   end
 
   # GET /families/1/edit
@@ -29,7 +30,7 @@ class FamiliesController < ApplicationController
 
     respond_to do |format|
       if @family.save
-        format.html { redirect_to @family, notice: 'Family was successfully created.' }
+        format.html { redirect_to families_url, notice: 'Family was successfully created.' }
       else
         format.html { render :new }
       end
@@ -40,7 +41,7 @@ class FamiliesController < ApplicationController
   def update
     respond_to do |format|
       if @family.update(family_params)
-        format.html { redirect_to families_path, notice: 'Family was successfully updated.' }
+        format.html { redirect_to @family, notice: 'Family was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -61,7 +62,7 @@ class FamiliesController < ApplicationController
   # Whitelist the parameters we expect to receive from a request to this controller.
   #
   def family_params
-    params.require(:family).permit(:primary_member_first_name, :primary_member_last_name, :primary_member_age, :home_address, :email_address, :phone_number)
+    params.require(:family).permit(:home_address, :email_address, :phone_number, primary_family_member_attributes: %i[type first_name last_name age])
   end
 
   def set_family

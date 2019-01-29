@@ -1,4 +1,5 @@
-<%= form_with(model: [@family, family_member.becomes(FamilyMember)], local: true) do |form| %>
+<% family_member = @additional_family_member if @additional_family_member.present? %>
+<%= form_with(model: [@family, family_member], local: true) do |form| %>
   <% if family_member.errors.any? %>
     <div id="error_explanation" class='alert alert-danger'>
       <h4><%= pluralize(family_member.errors.count, "error") %> prohibited this family_member from being saved:</h2>
@@ -26,6 +27,11 @@
     <%= form.number_field :age, class: 'form-control' %>
   </div>
 
+  <div class="form-group">
+    <%= form.label :relationship_id %>
+    <%= form.collection_select(:relationship_id, Relationship.all, :id, :name, {}, { class: 'form-control' }) %>
+  </div>
+
   <div class="form-check">
     <%= form.check_box :working, class: 'form-check-input' %>
     <%= form.label :working, class: 'form-check-label' %>
@@ -34,19 +40,14 @@
 
   <%= form.hidden_field :family_id, value: @family.id %>
 
-  <div class="form-group">
-    <%= form.label :relationship_id %>
-    <%= form.collection_select(:relationship_id, Relationship.all, :id, :name, {}, { class: 'form-control' }) %>
-  </div>
-
   <div class="actions">
     <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
 
 <script>
-  $('#family_member_age').on('blur', (event) => {
-    let workingCheckbox = $('#family_member_working');
+  $('#additional_family_member_age').on('blur', (event) => {
+    let workingCheckbox = $('#additional_family_member_working');
 
     if (event.target.value < 14) {
       workingCheckbox.checked = false;

@@ -61,3 +61,11 @@ label {
   height: 100%;
   width: 100%;
 }
+
+td {
+  > a,
+  > i {
+    color: #007bff;
+    cursor: pointer;
+  }
+}

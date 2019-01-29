@@ -5,9 +5,7 @@
 # Two models inherit from Family Member: PrimaryFamilyMember and AdditionalFamilyMember
 #
 class FamilyMember < ApplicationRecord
-  belongs_to :family
-
-  validates :first_name, :last_name, :age, :family_id, presence: true
+  validates :first_name, :last_name, :age, :family, presence: true
   validates :age, numericality: { only_integer: true }
 
   validate :limit_number_of_family_members
@@ -16,7 +14,7 @@ class FamilyMember < ApplicationRecord
   # A custom validation method that ensures each family has at most 9 FamilyMembers besides the primary member
   #
   def limit_number_of_family_members
-    errors.add(:base, 'You cannot add any more family members to this family') if family.family_members.size > 9
+    errors.add(:base, 'You cannot add any more family members to this family') if family.additional_family_members.size > 9
   end
 
   ##

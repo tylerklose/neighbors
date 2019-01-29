@@ -19,7 +19,7 @@
       <th scope='col'>Home address</th>
       <th scope='col'>Email address</th>
       <th scope='col'>Phone number</th>
-      <th colspan="2">Actions</th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
@@ -29,9 +29,10 @@
         <th scope='row'><%= link_to family.primary_family_member.last_name, family_family_members_path(family_id: family.id) %></td>
         <td><%= family.primary_family_member.first_name %></td>
         <td><%= family.primary_family_member.age %></td>
-        <td><%= family.home_address %></td>
+        <td id='<%= family.id%>-home_address'><%= family.home_address %></td>
         <td><%= mail_to(family.email_address) %></td>
         <td><%= number_to_phone(family.phone_number) %></td>
+        <td><%= map_icon(family) %></td>
         <td><%= link_to edit_icon, edit_family_path(family) %></td>
         <td><%= link_to delete_icon, family, method: :delete, data: { title: 'Delete Confirmation', confirm: "Are you sure you want to delete the <b>#{family.name}</b> family? This action cannot be undone." } %></td>
       </tr>
@@ -52,7 +53,7 @@
     });
 
     <% @families.each do |family| %>
-      var marker = new google.maps.Marker({
+      marker = new google.maps.Marker({
         position: <%== family.coordinates_for_google_maps %>,
         map: map,
         title: '<%= "The #{family.name} household" %>',
@@ -60,6 +61,11 @@
 
       marker.addListener('click', () => {
         window.location.href = '<%= family_family_members_path(family) %>';
+      });
+
+      $('#<%= family.id %>-map-icon').on('click', () => {
+        map.setZoom(8);
+        map.setCenter(<%== family.coordinates_for_google_maps %>);
       });
     <% end %>
   }
