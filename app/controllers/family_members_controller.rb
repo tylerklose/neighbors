@@ -17,7 +17,7 @@ class FamilyMembersController < ApplicationController
 
   # GET /family_members/new
   def new
-    @family_member = FamilyMember.new
+    @family_member = AdditionalFamilyMember.new
   end
 
   # GET /family_members/1/edit
@@ -25,9 +25,8 @@ class FamilyMembersController < ApplicationController
 
   # POST /family_members
   def create
-    @family_member = FamilyMember.new(family_member_params)
+    @family_member = AdditionalFamilyMember.new(family_member_params)
     @family_member.working = family_member_params[:working] == '1'
-    @family_member.type = 'AdditionalFamilyMember'
 
     respond_to do |format|
       if @family_member.save
@@ -63,7 +62,7 @@ class FamilyMembersController < ApplicationController
   # Whitelist the parameters we expect to receive from a request to this controller.
   #
   def family_member_params
-    params.require(:family_member).permit(:first_name, :last_name, :age, :working, :family_id, :relationship_id)
+    params.require(:additional_family_member).permit(:first_name, :last_name, :age, :working, :family_id, :relationship_id)
   end
 
   def set_family

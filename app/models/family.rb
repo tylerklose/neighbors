@@ -9,11 +9,14 @@ class Family < ApplicationRecord
   validates :phone_number, format: { with: /\d{10}/ }
 
   has_many :family_members, dependent: :destroy
-  has_one :primary_family_member, dependent: :destroy
-  has_many :additional_family_members, dependent: :destroy
+
+  has_one :primary_family_member, inverse_of: :family, dependent: :destroy
+  accepts_nested_attributes_for :primary_family_member
+
+  has_many :additional_family_members, inverse_of: :family, dependent: :destroy
 
   geocoded_by :home_address
-  after_validation :geocode
+  after_validation :geocode, if: ->(obj) { obj.address.present? && obj.address_changed? }
 
   ##
   # This method provides an alias to the primary_member_last_name attribute.
