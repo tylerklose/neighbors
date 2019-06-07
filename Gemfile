@@ -26,7 +26,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'validates_email_format_of', '~> 1.6.3'
 
 # Bootstrap 4 rubygem for Rails / Sprockets / Hanami / etc https://rubygems.org/gems/bootstrap
-gem 'bootstrap', '~> 4.2.1'
+gem 'bootstrap', '~> 4.3.1'
 # Makes Rails' link_to confirm: 'foo' build a Bootstrap Modal instead of calling the browser's confirm() API. https://github.com/ifad/data-confirm-modal
 gem 'data-confirm-modal', '~> 1.6.2'
 # he font-awesome font bundled as an asset for the rails asset pipeline https://github.com/bokmann/font-awesome-rails
