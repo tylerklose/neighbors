@@ -16,7 +16,7 @@ class Family < ApplicationRecord
   has_many :additional_family_members, inverse_of: :family, dependent: :destroy
 
   geocoded_by :home_address
-  after_validation :geocode, if: ->(obj) { obj.address.present? && obj.address_changed? }
+  after_validation :geocode, if: ->(obj) { obj.home_address.present? && obj.home_address_changed? }
 
   ##
   # This method provides an alias to the primary_member_last_name attribute.
