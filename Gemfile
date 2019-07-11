@@ -41,7 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
   # A Ruby static code analyzer and formatter, based on the community Ruby style guide. https://docs.rubocop.org
-  gem 'rubocop', '~> 0.62.0'
+  gem 'rubocop', '~> 0.72.0'
 
   # rspec-rails is a testing framework for Rails 3.x, 4.x and 5.x. Read more: https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '~> 3.8'
