@@ -32,7 +32,7 @@ gem 'data-confirm-modal', '~> 1.6.2'
 # he font-awesome font bundled as an asset for the rails asset pipeline https://github.com/bokmann/font-awesome-rails
 gem 'font-awesome-rails', '~> 4.7.0'
 # A gem to automate using jQuery with Rails https://github.com/rails/jquery-rails
-gem 'jquery-rails', '~> 4.3.3'
+gem 'jquery-rails', '~> 4.3.5'
 
 gem 'geocoder'
 
