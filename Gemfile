@@ -68,7 +68,7 @@ end
 
 group :test do
   # Simple one-liner tests for common Rails functionality https://matchers.shoulda.io
-  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'shoulda-matchers', '4.1.1'
 
   # Brings back `assigns` and `assert_template` to your Rails tests https://github.com/rails/rails-controller-testing
   gem 'rails-controller-testing', '~> 1.0.4'
